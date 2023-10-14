@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { TranslateConfigService } from '../../services/translate-config.service';
-import * as firebase from 'firebase'
+
 @Component({
   selector: 'app-verification-code',
   templateUrl: './verification-code.page.html',
@@ -20,30 +20,11 @@ export class VerificationCodePage implements OnInit {
     private route: ActivatedRoute
   ) {
     this.lang = this.translateConfig.getCurrentLang();
+    // this.fillParentChildren();
+    this.apiService.checkVerificationStatus();
   }
 
-  ngOnInit() { }
-
-  ionViewWillEnter() {
-    this.fillParentChildren();
-  }
-
-
-  fillParentChildren(observe?: boolean) {
-    this.parentData = undefined;
-    this.apiService.sharedMethods.startLoad();
-    this.apiService.getParentChildren(observe).subscribe(
-      (res: any) => {
-        this.apiService.sharedMethods.dismissLoader();
-        if (!res || !res.result) return;
-
-        this.parentData = res?.parent;
-      },
-      (error) => {
-        this.apiService.sharedMethods.dismissLoader();
-      }
-    );
-  }
+  ngOnInit() {}
 
   verifyCode() {
     if (!this.code.match(/^\d+$/)) {
@@ -60,7 +41,7 @@ export class VerificationCodePage implements OnInit {
       return;
     }
 
-    this.loading = true;
+    // this.loading = true;
 
     this.apiService.sharedVariables.verifyCode
       .confirm(this.code)
@@ -69,7 +50,8 @@ export class VerificationCodePage implements OnInit {
         console.log(res);
         if (res && res.user) {
           let staticCode = localStorage.getItem('smsCode');
-
+          localStorage.setItem('verified', '1')
+          this.router.navigate(['/tabs/home']);
           // this.apiService.verifyCode(staticCode).subscribe(
           //   (res) => {
           //     //console.log(res)
@@ -92,68 +74,44 @@ export class VerificationCodePage implements OnInit {
     // this.loading = true;
   }
 
+  ionViewWillEnter() {
+    this.fillParentChildren();
+  }
+
+  fillParentChildren(observe?: boolean) {
+    this.parentData = undefined;
+    this.apiService.sharedMethods.startLoad();
+    this.apiService.getParentChildren(observe).subscribe(
+      (res: any) => {
+        this.apiService.sharedMethods.dismissLoader();
+        if (!res || !res.result) return;
+
+        this.parentData = res?.parent;
+      },
+      (error) => {
+        this.apiService.sharedMethods.dismissLoader();
+      }
+    );
+  }
+
   onCodeChanged(code: string) {
-    console.log(code.length);
+    console.log(code);
   }
 
   // this called only if user entered full code
   onCodeCompleted(code: string) {
     console.log(code);
     this.code = code;
-    console.log(this.code.length)
-    // this.verify();
-  }
-
-
-
-
-  verify() {
-
-    if (this.code === this.parentData.pw) {
-      localStorage.setItem('verified', '1')
-      this.router.navigate(['/tabs/home'], {
-        relativeTo: this.route,
-      });
-    } else {
-      console.log('sms code');
-      this.loading = true;
-      let signInCredential = firebase.default.auth.PhoneAuthProvider.credential(
-        this.apiService.sharedVariables.verificationID,
-        this.code
-      );
-
-      console.log('signInCredential', signInCredential)
-      firebase.default
-        .auth()
-        .signInWithCredential(signInCredential)
-        .then((success) => {
-          this.loading = false
-          console.log(success);
-          localStorage.setItem('verified', '1')
-          this.router.navigate(['/tabs/home']);
-
-          let staticCode = localStorage.getItem('smsCode');
-
-
-
-          // this.apiService.verifyCode(staticCode).subscribe(
-          //   (res) => {
-          //     //console.log(res)
-          //     this.loading = false;
-
-          //     //this.router.navigate(['/tabs/home']);
-          //   },
-          //   (error) => {
-          //     this.loading = false;
-          //   }
-          // );
-        })
-        .catch((err) => {
-          this.loading = false;
-          this.apiService.sharedMethods.presentToast(err, 'danger');
+    if (this.code.length == 6) {
+      if (this.code === this.parentData.pw) {
+        localStorage.setItem('verified', '1')
+        this.router.navigate(['/tabs/home'], {
+          relativeTo: this.route,
         });
+      } else {
+        console.log('sms code');
+        this.verifyCode();
+      }
     }
-
-
   }
 }

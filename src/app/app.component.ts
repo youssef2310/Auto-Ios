@@ -12,8 +12,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { TranslateConfigService } from './services/translate-config.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { FCM } from 'cordova-plugin-fcm-with-dependecy-updated/ionic/ngx';
 import { Location } from '@angular/common';
-import { Firebase } from '@ionic-native/firebase/ngx';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -37,7 +38,7 @@ export class AppComponent {
     private translateConfig: TranslateConfigService,
     private locationAccuracy: LocationAccuracy,
     private geoLocation: Geolocation,
-    private firebasePlugin: Firebase,
+    private fcmService: FCM,
     private location: Location,
     private alertController: AlertController
   ) {
@@ -45,8 +46,10 @@ export class AppComponent {
       localStorage.getItem('lang') ? localStorage.getItem('lang') : 'ar'
     );
     this.initializeApp();
-    if (localStorage.getItem('userToken') &&
-      localStorage.getItem('verified') == '1') {
+    if (
+      localStorage.getItem('userToken') &&
+      localStorage.getItem('verified') == '1'
+    ) {
       this.router.navigate(['/tabs/home']);
     } else {
       this.router.navigate(['/signin']);
@@ -56,8 +59,6 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-
-
       // this.statusBar.styleDefault();
       this.statusBar.backgroundColorByHexString('#083985');
       this.splashScreen.hide();
@@ -68,8 +69,6 @@ export class AppComponent {
       );
     });
   }
-
-
 
   backButtonEvent() {
     this.platform.backButton.subscribeWithPriority(0, () => {
@@ -101,7 +100,7 @@ export class AppComponent {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-          handler: (blah) => { },
+          handler: (blah) => {},
         },
         {
           text: 'Close App',
@@ -155,26 +154,18 @@ export class AppComponent {
       return;
     } else {
       if (this.platform.is('ios')) {
-        this.firebasePlugin.grantPermission().then((res) => {
-
-          this.firebasePlugin.getToken().then((token) => {
-            localStorage.setItem('notification_token', token);
-          });
-
-
-
+        this.fcmService.requestPushPermission().then((res) => {
+          if (res) {
+            this.fcmService.getToken().then((token) => {
+              localStorage.setItem('notification_token', token);
+            });
+          }
         });
       } else {
-        this.firebasePlugin.getToken().then((token) => {
+        this.fcmService.getToken().then((token) => {
           localStorage.setItem('notification_token', token);
         });
-        this.firebasePlugin.onTokenRefresh().subscribe(res => {
-          localStorage.setItem('notification_token', res);
-
-        })
       }
     }
   }
-
-
 }
