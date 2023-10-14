@@ -1,0 +1,80 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button
+        defaultHref="tabs/home"
+        icon="chevron-back"
+        mode="md"
+        class="btn-back"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title [lang]="lang"
+      >{{'notifications' | translate}}</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <ion-progress-bar
+    color="danger"
+    *ngIf="loading"
+    type="indeterminate"
+  ></ion-progress-bar>
+
+  <!-- Sliding item with icon bottom options on end side -->
+  <ion-list *ngIf="notifications && notifications.length">
+    <ion-item-sliding
+      ion-padding
+      *ngFor="let notification of notifications ;let i = index ; trackBy: trackByIdFunc"
+    >
+      <ion-item
+        (click)="setNotificationAsRead(notification,i)"
+        [style.color]=" notification.read == false ? 'gray' : '#505050'"
+      >
+        <ion-col>
+          <ion-row>
+            <ion-label
+              [style.white-space]="notification.read == false ? '' : 'inherit'"
+            >
+              {{notification?.message}}</ion-label
+            >
+          </ion-row>
+
+          <ion-row *ngIf="notification.read == true">
+            <ion-label
+              [style.white-space]="notification.read == false ? '' : 'inherit'"
+            >
+              {{notification?.date | date:'dd-MM-YYYY'}}</ion-label
+            >
+          </ion-row>
+          <ion-row *ngIf="notification.read == true">
+            <ion-label
+              [style.white-space]="notification.read == false ? '' : 'inherit'"
+            >
+              {{notification?.date | date:' hh:mm '}} {{notification?.ampm}}</ion-label
+            >
+          </ion-row>
+          <ion-row *ngIf="notification.read == true">
+            <ion-label
+              [style.white-space]="notification.read == false ? '' : 'inherit'"
+            >
+              {{notification?.school}}</ion-label
+            >
+          </ion-row>
+        </ion-col>
+
+        <!-- <ion-note slot="end" color="primary">#{{notification?.order_id}}</ion-note> -->
+      </ion-item>
+
+      <!-- <ion-item-options>
+            <ion-item-option color="danger" (click)="deleteNotif(notification.id)">
+              <ion-icon name="trash-outline" slot="icon-only" ></ion-icon>
+            </ion-item-option> 
+           
+          </ion-item-options>-->
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

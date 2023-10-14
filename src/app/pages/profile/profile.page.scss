@@ -1,0 +1,133 @@
+ion-header {
+  ion-toolbar {
+    //height: 270px;
+    min-height: 270px !important;
+    //border-radius: 0px 0px 120px 120px;
+    font-weight: bolder;
+    ion-title {
+      text-align: center;
+      color: white;
+      text-transform: uppercase;
+      font-size: 17px;
+    }
+  }
+  .btn-edit {
+    font-size: 10px;
+    margin-top: -13px;
+    ion-icon {
+      font-size: 22px;
+    }
+  }
+}
+
+ion-content {
+  .hexagon {
+    overflow: hidden;
+    visibility: hidden;
+    transform: rotate(120deg);
+    cursor: pointer;
+  }
+  .hexagon-in1 {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-60deg);
+  }
+  .hexagon-in2 {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // background-image: url('../../../assets/Images/profile.jpg'); //http://placekitten.com/100/90
+    visibility: visible;
+    transform: rotate(-60deg);
+  }
+
+  .hexagon1 {
+    width: 100px;
+    height: 90px;
+    margin: 0px auto;
+  }
+
+  .name-text {
+    color: var(--ion-color-blue);
+    margin-top: 10px;
+  }
+  ion-list {
+    margin-top: 2rem;
+    ion-item {
+      --padding-start: 8px;
+      ion-icon {
+        //color: var(--ion-color-yellow);
+        font-size: 18px;
+        margin-right: 16px;
+      }
+      ion-label {
+        font-size: 16px;
+        color: var(--ion-color-blue);
+      }
+    }
+  }
+}
+
+ion-row {
+  white-space: nowrap !important;
+}
+
+.profile-photo {
+  flex: 10;
+  text-align: center;
+  img {
+    padding: 10px;
+    width: 120px;
+    height: 120px;
+    max-width: 120px;
+    max-height: 120px;
+    border: 2px solid white;
+    border-radius: 50%;
+  }
+}
+
+.user-name {
+  flex: 10;
+  text-align: center;
+  margin-top: 5px;
+  p:first-child {
+    color: #fff;
+    font-size: 18px;
+  }
+  p:nth-child(2) {
+    font-size: 13px;
+    font-weight: 100;
+    color: lightgray;
+  }
+}
+
+.btn-back {
+  --icon-font-size: 30px !important;
+}
+
+.btn-general {
+  width: 90% !important;
+  margin-top: 10% !important;
+}
+
+:host ::ng-deep button {
+  width: 95%;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  font-size: 17px;
+}
+
+.btn-edit {
+  font-size: 10px;
+  margin-top: -13px;
+  ion-icon {
+    font-size: 22px;
+  }
+}

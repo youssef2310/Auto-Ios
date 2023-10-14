@@ -1,0 +1,31 @@
+<ion-tabs [lang]="lang">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="help">
+      <ion-icon src="assets/icon/help-icon.svg"></ion-icon>
+      <ion-label>{{'help' | translate}}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button
+      tab="spare-driver"
+      *ngIf="parent?.driver1F || parent?.driver2F"
+    >
+      <ion-icon name="people" style="color: white !important"></ion-icon>
+      <ion-label>{{ 'Delegates' | translate }}</ion-label>
+    </ion-tab-button>
+
+    <!-- <ion-tab-button tab="notification">
+      <ion-icon src="assets/icon/notification-icon.svg"></ion-icon>
+      <ion-label>{{'notifications' | translate}}</ion-label>
+    </ion-tab-button> -->
+
+    <ion-tab-button tab="profile">
+      <ion-icon src="assets/icon/profile-icon.svg"></ion-icon>
+      <ion-label>{{'profile' | translate}}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="home">
+      <ion-icon src="assets/icon/home-icon.svg"></ion-icon>
+      <ion-label>{{ 'home' | translate }}</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

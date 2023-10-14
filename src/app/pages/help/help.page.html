@@ -1,0 +1,89 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button
+        defaultHref="tabs/home"
+        icon="chevron-back"
+        mode="md"
+        class="btn-back"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title [lang]="lang">{{'help' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" [lang]="lang">
+  <ion-grid [lang]="lang">
+    <ion-col>
+      <ion-row>
+        <div class="help-container table">
+          <ion-col class="table-cell">
+            <div style="flex: 10">
+              <p class="title" [lang]="lang">{{'help1' | translate}}</p>
+            </div>
+            <div style="flex: 10">
+              <button
+                mat-flat-button
+                class="btn-general"
+                disbaled
+                [lang]="lang"
+              >
+                {{'presstocall' | translate}}
+              </button>
+            </div>
+          </ion-col>
+        </div>
+      </ion-row>
+      <br />
+      <ion-row>
+        <div class="help-container">
+          <ion-row>
+            <ion-col size="6" class="tabel">
+              <img src="assets/image/speaker-img.png" class="img tabel-cell" />
+            </ion-col>
+
+            <ion-col size="6" class="tabel">
+              <p class="title tabel-cell" style="text-align: end" [lang]="lang">
+                {{'help2' | translate}}
+              </p>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-row>
+
+      <br />
+      <ion-row>
+        <div class="help-container">
+          <ion-row>
+            <ion-col size="6" class="tabel">
+              <img src="assets/image/screen-img.png" class="img tabel-cell" />
+            </ion-col>
+
+            <ion-col size="6" class="tabel">
+              <p class="title tabel-cell" style="text-align: end" [lang]="lang">
+                {{'help3' | translate}}
+              </p>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-row>
+
+
+      <br />
+      <ion-row>
+        <div class="help-container">
+          <ion-row>
+            <ion-col size="6" class="tabel">
+              <img src="assets/image/qrcode-img.svg" class="img tabel-cell" />
+            </ion-col>
+
+            <ion-col size="6" class="tabel">
+              <p class="title tabel-cell" style="text-align: end" [lang]="lang">
+                {{'help4' | translate}}
+              </p>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+</ion-content>

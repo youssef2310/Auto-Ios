@@ -1,0 +1,42 @@
+.help-container {
+  flex: 10;
+  min-height: 150px;
+  background-color: #fff;
+  border: 1px solid #cecece;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.help-container ion-col {
+  text-align: center;
+}
+
+.help-container ion-row{
+text-align: end;
+}
+
+.title {
+  color: #505050;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.btn-general{
+    width: 85% !important;
+    margin: auto;
+}
+
+.tabel{
+    display: table;
+}
+
+.tabel-cell{
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.img{
+    width: 90% !important;
+    margin: auto;
+}

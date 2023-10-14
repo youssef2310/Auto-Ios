@@ -1,0 +1,25 @@
+.msg-container {
+  padding-top: 5%;
+  height: 90px;
+}
+
+.inp-container {
+  flex: 10;
+}
+
+.inp-general {
+  width: 95%;
+}
+
+.btn-general {
+  width: 95% !important;
+}
+
+:host ::ng-deep input {
+  border: 2px solid #234493 !important;
+  color: #fff !important;
+  height: 55px !important;
+  background-color: #234493 !important;
+  font-weight: bold !important;
+}
+

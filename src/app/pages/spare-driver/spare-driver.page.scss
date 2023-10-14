@@ -1,0 +1,134 @@
+[header-title] {
+  padding: 0 10px 1px !important;
+}
+
+ion-toolbar {
+  padding-left: 10px;
+}
+
+.avatar-img {
+  margin: auto;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  max-width: 55px;
+  max-height: 55px;
+  margin-top: 2px;
+}
+
+.mobile-number {
+  margin-top: -10px;
+  color: #ffffff;
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+.client-name {
+  margin-top: 5px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+ion-card {
+  //  width: 85%;
+  margin: auto;
+}
+ion-card-header {
+  background: linear-gradient(to left, #8b3cce 0%, #060690 100%) !important;
+  background-size: cover;
+  height: 55px;
+}
+ion-card-content {
+  width: 95%;
+  white-space: nowrap;
+  margin: auto;
+}
+
+.school-img {
+  width: 45px;
+  height: 45px;
+  margin-top: -10px;
+  margin-left: 12px;
+}
+
+.school-name {
+  //margin-top: 5px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 1;
+}
+
+.student-name {
+  font-size: 20px;
+  color: #505050;
+  font-weight: bold;
+}
+.btn-general {
+  width: 100%;
+  font-size: 12px !important;
+}
+
+.next-line {
+  border-bottom: 1px solid #cecece;
+  padding-bottom: 20px;
+}
+
+.card-item .titel {
+  color: #234294;
+}
+
+.isReaded {
+  background-color: #dce5ff;
+  box-shadow: -1px 0px 1px #efefef9c;
+}
+
+.noti-count {
+  text-align: right;
+}
+
+ion-icon {
+  --color: #ffff !important;
+  --ion-color-base: #fff !important;
+  font-size: 26px !important;
+}
+
+.notifications-badge {
+  margin-left: -14px;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  /* text-align: center; */
+  padding-top: 16%;
+  margin-top: -10px;
+}
+
+.payment-valid {
+  background: linear-gradient(to left, #8b3cce 0%, #060690 100%) !important;
+}
+
+.payment-invalid {
+  background: red !important;
+}
+
+.inp-container {
+  flex: 1;
+  margin-top: 11px;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.inp-general {
+  text-align: center !important;
+}
+
+:lang(ar){
+  direction: rtl !important;
+}
+:lang(en){
+  direction: ltr !important;
+}
+
+:host ::ng-deep .native-input[disabled] {
+  opacity: unset !important; 
+}

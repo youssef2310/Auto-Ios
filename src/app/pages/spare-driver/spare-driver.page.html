@@ -1,0 +1,247 @@
+<ion-header class="ion-no-border" style="direction: ltr !important">
+  <ion-toolbar style="direction: ltr !important">
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button
+        defaultHref="tabs/home"
+        icon="chevron-back"
+        mode="md"
+        class="btn-back"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title [lang]="lang"
+      >{{'Delegates' | translate}}</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" [lang]="lang">
+  <ion-grid [lang]="lang">
+    <ion-col>
+      <ion-card>
+        <ion-card-header>
+          <ion-row>
+            <span class="school-name"
+              >{{'spare driver' | translate}} {{'number one' | translate}}</span
+            >
+            <div style="flex: 1"></div>
+          </ion-row>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-grid>
+            <ion-col>
+              <ion-row>
+                <ion-col size="2">
+                  <div class="inp-container">
+                    <span>{{'name' | translate}}</span>
+                  </div>
+                </ion-col>
+                <ion-col size="10">
+                  <ion-input
+                    type="text"
+                    name="txtNameOne"
+                    required
+                    class="inp-general"
+                    [(ngModel)]="nameOne"
+                    #ngNameOne="ngModel"
+                    maxlength="30"
+                  ></ion-input>
+                </ion-col>
+              </ion-row>
+
+              <ion-row [lang]="lang" *ngIf="lang == 'ar' ">
+                <ion-col size="3">
+                  <div class="inp-container">
+                    <span>{{'mobile' | translate}}</span>
+                  </div>
+                </ion-col>
+
+                <ion-col size="6">
+                  <ion-input
+                    type="tel"
+                    name="txtMobileOne"
+                    required
+                    class="inp-general"
+                    [(ngModel)]="mobileOne"
+                    #ngMobileOne="ngModel"
+                    maxlength="9"
+                  ></ion-input>
+                </ion-col>
+
+                <ion-col size="3">
+                  <ion-input
+                    type="text"
+                    name="txtCVV"
+                    required
+                    style="
+                      padding-left: 0 !important;
+                      text-align: left !important;
+                    "
+                    class="inp-general"
+                    [(ngModel)]="countryPhoneCode"
+                    #ngCode="ngModel"
+                    disabled
+                  ></ion-input>
+                </ion-col>
+              </ion-row>
+
+              <ion-row [lang]="lang" *ngIf="lang == 'en' ">
+                <ion-col size="3">
+                  <div class="inp-container">
+                    <span>{{'mobile' | translate}}</span>
+                  </div>
+                </ion-col>
+
+                <ion-col size="3">
+                  <ion-input
+                    type="text"
+                    name="txtCVV"
+                    required
+                    style="
+                      padding-left: 0 !important;
+                      text-align: left !important;
+                    "
+                    class="inp-general"
+                    [(ngModel)]="countryPhoneCode"
+                    #ngCode="ngModel"
+                    disabled
+                  ></ion-input>
+                </ion-col>
+
+                <ion-col size="6">
+                  <ion-input
+                    type="tel"
+                    name="txtMobileOne"
+                    required
+                    class="inp-general"
+                    [(ngModel)]="mobileOne"
+                    #ngMobileOne="ngModel"
+                    maxlength="9"
+                  ></ion-input>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card style="margin-top: 5%" *ngIf="parent?.driver2F">
+        <ion-card-header>
+          <ion-row>
+            <span class="school-name"
+              >{{'spare driver' | translate}} {{'number two' | translate}}</span
+            >
+            <div style="flex: 1"></div>
+          </ion-row>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-grid>
+            <ion-col>
+              <ion-row>
+                <ion-col size="2">
+                  <div class="inp-container">
+                    <span>{{'name' | translate}}</span>
+                  </div>
+                </ion-col>
+                <ion-col size="10">
+                  <ion-input
+                    type="text"
+                    name="txtNameTwo"
+                    required
+                    class="inp-general"
+                    [(ngModel)]="nameTwo"
+                    #ngNameTwo="ngModel"
+                    maxlength="30"
+                  ></ion-input>
+                </ion-col>
+              </ion-row>
+
+              <ion-row [lang]="lang" *ngIf="lang == 'en' ">
+                <ion-col size="3">
+                  <div class="inp-container">
+                    <span>{{'mobile' | translate}}</span>
+                  </div>
+                </ion-col>
+                <ion-col size="3">
+                  <ion-input
+                    type="text"
+                    name="txtCVV"
+                    required
+                    style="
+                      padding-left: 0 !important;
+                      text-align: left !important;
+                    "
+                    class="inp-general"
+                    [(ngModel)]="countryPhoneCode"
+                    #ngCode="ngModel"
+                    disabled
+                  ></ion-input>
+                </ion-col>
+                <ion-col size="6">
+                  <ion-input
+                    type="tel"
+                    name="txtMobileTwo"
+                    required
+                    class="inp-general"
+                    [(ngModel)]="mobileTwo"
+                    #ngMobileTwo="ngModel"
+                    maxlength="9"
+                  ></ion-input>
+                </ion-col>
+              </ion-row>
+
+              <ion-row [lang]="lang" *ngIf="lang == 'ar' ">
+                <ion-col size="3">
+                  <div class="inp-container">
+                    <span>{{'mobile' | translate}}</span>
+                  </div>
+                </ion-col>
+
+                <ion-col size="6">
+                  <ion-input
+                    type="tel"
+                    name="txtMobileTwo"
+                    required
+                    class="inp-general"
+                    [(ngModel)]="mobileTwo"
+                    #ngMobileTwo="ngModel"
+                    maxlength="9"
+                  ></ion-input>
+                </ion-col>
+                <ion-col size="3">
+                  <ion-input
+                    type="text"
+                    name="txtCVV"
+                    required
+                    style="
+                      padding-left: 0 !important;
+                      text-align: left !important;
+                    "
+                    class="inp-general"
+                    [(ngModel)]="countryPhoneCode"
+                    #ngCode="ngModel"
+                    disabled
+                  ></ion-input>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+      <br />
+      <ion-row class="ion-padding">
+        <div style="flex: 10; text-align: center">
+          <button mat-raised-button class="btn-general" (click)="save()">
+            <span *ngIf="!isLoading">{{'save' | translate}}</span>
+            <ion-spinner
+              *ngIf="isLoading"
+              name="lines"
+              style="--color: #fff !important"
+            ></ion-spinner>
+          </button>
+        </div>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "983437943168",
+    "project_id": "auto-neda",
+    "storage_bucket": "auto-neda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983437943168:android:0597980f613be184296165",
+        "android_client_info": {
+          "package_name": "com.era.autoNeda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "983437943168-1753p1r3p9jrvlkubs97m82sn1jqf0p1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6jrvXyG--aihr2phvNIC2H9NsWAAQfws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "983437943168-1753p1r3p9jrvlkubs97m82sn1jqf0p1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "983437943168-rm2kkqvmkalm0oneof6lih60rehsel4q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.era.autoNeda"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

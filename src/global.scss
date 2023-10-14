@@ -1,0 +1,166 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+[header-title] {
+  font-size: 17px;
+  font-family: "sans_bold";
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 50px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: -2;
+  --color: var(--ion-color-white);
+  text-transform: uppercase;
+}
+
+ion-header {
+  ion-toolbar {
+    --background: linear-gradient(to left, #8b3cce 0%, #060690 100%) !important;
+    min-height: 60px !important;
+  }
+}
+
+.btn-back {
+  --color: var(--ion-color-white);
+  --color-focused: var(--ion-color-white);
+  --color-hover: var(--ion-color-white);
+  --icon-font-size: 25px;
+  display: inherit !important;
+}
+
+* {
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+
+
+.testToast{
+  color: black !important;
+}
+
+.alert-color{
+  color: #060690 !important;
+  font-weight: 600;
+}
+
+[lang="ar"] {
+  .alert-wrapper {
+    direction: rtl !important;
+  }
+}
+
+[lang="en"] {
+  .alert-wrapper {
+    direction: ltr !important;
+  }
+}
+
+
+
+
+.btn-general {
+  font-size: 18px;
+  height: 50px !important;
+  --background: linear-gradient(to left, #8b3cce 0%, #060690 100%) !important;
+  --box-shadow: none;
+  --border-radius: 12px;
+  width: 100% !important;
+  margin: auto !important;
+  margin-left: 20px;
+  background: linear-gradient(to left, #8b3cce 0%, #060690 100%) !important;
+  color: white;
+  font-weight: 600;
+  text-transform: capitalize !important;
+  letter-spacing: 0.5px;
+  border-radius: 8px !important;
+  color: #fff !important;
+}
+
+.msg-container {
+  text-align: center;
+  padding: 10px;
+  height: 140px;
+  padding-top: 10%;
+  width: 95%;
+  margin: auto;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 2px solid #cecece;
+}
+
+.msg-text {
+  color: #505050;
+  font-size: 13px;
+}
+
+.inp-general {
+  border: 1px soild gray;
+  /* background: red; */
+  border: 1px solid #cecece;
+  outline: 0;
+  border-radius: 5px;
+  text-align: start;
+  padding-left: 10px !important;
+  color: #505050 !important;
+  font-family: "roboto_regular";
+  background-color: #fff;
+  margin: auto;
+}
+
+ion-content {
+  width: 100% !important;
+  height: 100% !important;
+  background-image: url(./assets/image/background-img.png) !important;
+  background-size: cover !important;
+  --background: #f3f3f3 url(./assets/image/background-img.png) no-repeat center
+    center / cover !important;
+}
+
+.ios ion-content {
+  --padding-top: env(safe-area-inset-top) !important;
+}
+
+.active-lang {
+  height: 40px;
+  text-align: center;
+  background: #8b3cce;
+  border: 0;
+  outline: 0;
+  color: #fff;
+}
+
+.inactive-lang {
+  background: #ffffff;
+  height: 40px;
+  color: #505050;
+  opacity: 0.8;
+  outline: 0;
+  border: 1px solid #cecece;
+}

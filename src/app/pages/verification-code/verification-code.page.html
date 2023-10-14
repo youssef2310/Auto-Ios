@@ -1,0 +1,75 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button
+        routerLink="/signin"
+        icon="chevron-back"
+        mode="md"
+        class="btn-back"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title [lang]="lang"
+      >{{'mobileverification' | translate}}</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" [lang]="lang">
+  <ion-grid>
+    <ion-col>
+      <ion-row>
+        <div class="msg-container" [lang]="lang">
+          <p class="msg-text">{{'userverification' | translate}}</p>
+        </div>
+      </ion-row>
+      <br />
+
+      <ion-row>
+        <!-- <div class="inp-container">
+          <ion-input
+            [placeholder]=" 'verificationcode' | translate "
+            type="text"
+            name="txtCVV"
+            required
+            class="inp-general"
+            [(ngModel)]="code"
+            #ngCode="ngModel"
+          ></ion-input>
+        </div> -->
+        <ion-row style="margin-top: 10%;">
+          <div style="flex: 1"></div>
+
+          <div style="flex: 10">
+            <code-input
+              [isCodeHidden]="false"
+              [codeLength]="6"
+              (codeChanged)="onCodeChanged($event)"
+              (codeCompleted)="onCodeCompleted($event)"
+            >
+            </code-input>
+          </div>
+
+          <div style="flex: 1"></div>
+        </ion-row>
+      </ion-row>
+
+      <br />
+      <ion-row [lang]="lang" style="margin-top: 10%;">
+        <div style="flex: 10; text-align: center">
+          <button
+            mat-raised-button
+            class="btn-general"
+            [disabled]="!code || loading"
+            (click)="verify()"
+          >
+            <span *ngIf="!loading">{{'verify' | translate}}</span>
+            <ion-spinner
+              *ngIf="loading"
+              name="lines"
+              style="--color: #fff !important"
+            ></ion-spinner>
+          </button>
+        </div>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+</ion-content>

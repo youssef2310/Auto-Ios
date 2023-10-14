@@ -1,0 +1,86 @@
+<ion-content>
+  <ion-grid
+    style="
+      background: linear-gradient(to left, #8b3cce 0%, #060690 100%) !important;
+      padding-top: 20px !important;
+    "
+  >
+    <ion-col>
+      <ion-row>
+        <div style="flex: 1; text-align: start">
+          <ion-buttons slot="start" class="ion-no-margin">
+            <ion-back-button
+              defaultHref="tabs/home"
+              icon="chevron-back"
+              mode="md"
+              class="btn-back btn-edit"
+            ></ion-back-button>
+          </ion-buttons>
+        </div>
+        <div style="flex: 2; text-align: center">
+          <span class="title">{{'profile' | translate}}</span>
+        </div>
+        <div style="flex: 1; text-align: end"></div>
+      </ion-row>
+      <ion-row style="margin-top: 10px">
+        <div class="profile-photo">
+          <img src="assets/image/avatar-home-img.svg" />
+        </div>
+      </ion-row>
+      <ion-row>
+        <div class="user-name">
+          <p *ngIf="!isDeleted">{{parent?.name}}</p>
+          <p>+{{parent?.mob}}</p>
+        </div>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+  <ion-grid>
+    <ion-col>
+      <ion-row style="direction: rtl !important">
+        <ion-col size="6">
+          <button
+            mat-raised-button
+            lang="ar"
+            [ngClass]="lang == 'ar' ? 'active-lang' : 'inactive-lang' "
+            (click)="changeLanguage('ar')"
+          >
+            العربية
+          </button>
+        </ion-col>
+        <ion-col size="6">
+          <button
+            mat-raised-button
+            lang="en"
+            [ngClass]="lang == 'en' ? 'active-lang' : 'inactive-lang' "
+            (click)="changeLanguage('en')"
+          >
+            English
+          </button>
+        </ion-col>
+      </ion-row>
+      <br />
+
+      <ion-row >
+        <div style="flex: 10; text-align: center">
+          <button mat-raised-button class="btn-general" (click)="confirmLogout()">
+            <span *ngIf="!loading">{{'logout' | translate}}</span>
+            <ion-spinner
+              *ngIf="loading"
+              name="lines"
+              style="--color: #fff !important"
+            ></ion-spinner>
+          </button>
+        </div>
+      </ion-row>
+
+      <ion-row *ngIf="!isDeleted && parent?.mob == '966588888888' ">
+        <div style="flex: 10; text-align: center">
+          <button mat-raised-button class="btn-general" (click)="presentAlertConfirm()">
+            <span>Delete Account</span>
+          </button>
+        </div>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+</ion-content>

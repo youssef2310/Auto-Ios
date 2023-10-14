@@ -1,0 +1,7 @@
+{
+  "name": "auto-neda-new",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

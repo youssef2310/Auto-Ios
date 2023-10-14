@@ -1,0 +1,108 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <!-- <ion-back-button
+        icon="chevron-back"
+        mode="md"
+        class="btn-back"
+      ></ion-back-button> -->
+    </ion-buttons>
+    <ion-title header-title [lang]="lang">{{'register' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-col>
+      <ion-row style="direction: rtl !important">
+        <ion-col size="6">
+          <button
+            mat-raised-button
+            lang="ar"
+            [ngClass]="lang == 'ar' ? 'active-lang' : 'inactive-lang' "
+            (click)="changeLanguage('ar')"
+          >
+            العربية
+          </button>
+        </ion-col>
+        <ion-col size="6">
+          <button
+            mat-raised-button
+            lang="en"
+            [ngClass]="lang == 'en' ? 'active-lang' : 'inactive-lang' "
+            (click)="changeLanguage('en')"
+          >
+            English
+          </button>
+        </ion-col>
+      </ion-row>
+      <br />
+
+      <ion-row>
+        <div class="msg-container" [lang]="lang">
+          <p class="happy-serve">{{'wearehappytoserveyou' | translate}}</p>
+          <p class="msg-text">{{'registerationmessage' | translate}}</p>
+        </div>
+      </ion-row>
+      <br />
+
+      <ion-row style="direction: ltr !important" [lang]="lang">
+        <ion-col size="4">
+          <ion-input
+            [placeholder]=" 'code' | translate "
+            type="text"
+            name="txtCVV"
+            required
+            class="inp-general"
+            [(ngModel)]="countryPhoneCode"
+            #ngCode="ngModel"
+            disabled
+          ></ion-input>
+        </ion-col>
+        <ion-col size="8">
+          <ion-input
+            [placeholder]=" 'enteryourmobilenumber' | translate "
+            type="tel"
+            pattern="\d*"
+            name="txtCode"
+            required
+            class="inp-general"
+            [(ngModel)]="mobile"
+            #ngMobile="ngModel"
+            maxlength="9"
+          ></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <br />
+      <ion-row [lang]="lang">
+        <div style="flex: 10; text-align: center">
+          <button
+            mat-raised-button
+            class="btn-general"
+            [disabled]="!mobile || !countryPhoneCode"
+            (click)="register()"
+          >
+            <span *ngIf="!loading">{{'register' | translate}}</span>
+            <ion-spinner
+              *ngIf="loading"
+              name="lines"
+              style="--color: #fff !important"
+            ></ion-spinner>
+          </button>
+        </div>
+      </ion-row>
+
+      <ion-row style="margin-top: 20%">
+        <div style="flex: 10; text-align: center">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Mada_Logo.svg"
+            width="120px"
+          />
+        </div>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+</ion-content>
+
+<div id="recaptcha-container" style="display: none !important"></div>

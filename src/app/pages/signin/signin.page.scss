@@ -1,0 +1,27 @@
+:host ::ng-deep button {
+  width: 95%;
+  margin: auto;
+}
+
+ion-content {
+  width: 100%;
+  height: 100%;
+  background-image: url(../../../assets/image/background-img.png);
+  background-size: cover;
+  --background: #F3F3F3 url(../../../assets/image/background-img.png) no-repeat center center / cover;
+}
+
+
+.happy-serve {
+  color: #8b3cce;
+  font-weight: bolder;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+:host ::ng-deep .native-input[disabled] {
+  opacity: unset !important; 
+}
+
+
+

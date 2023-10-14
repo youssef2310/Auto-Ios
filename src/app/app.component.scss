@@ -1,0 +1,23 @@
+// ion-app {
+//  --margin-top: env(safe-area-inset-top) !important;
+//   --margin-bottom: env(safe-area-inset-bottom) !important;
+//   margin-top: env(safe-area-inset-top) !important;
+//   margin-bottom: env(safe-area-inset-bottom) !important;
+// }
+
+
+// body {
+//     --margin-top: env(safe-area-inset-top) !important;
+//     --margin-top: constant(safe-area-inset-top) !important;
+//     margin-top: env(safe-area-inset-top) !important;
+//     margin-top: constant(safe-area-inset-top) !important;
+//   }
+  
+body {
+    // --padding-top: env(safe-area-inset-top) !important;
+    --padding-top: constant(safe-area-inset-top) !important;
+    padding-top: env(safe-area-inset-top) !important;
+    // margin-top: constant(safe-area-inset-top) !important;
+  }
+  
+  

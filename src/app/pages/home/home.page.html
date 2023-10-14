@@ -1,0 +1,158 @@
+<ion-header class="ion-no-border" [lang]="lang">
+  <ion-toolbar>
+    <ion-buttons
+      slot="start"
+      class="ion-padding-vertical"
+      routerLink="/tabs/notification"
+    >
+      <ion-icon
+        name="notifications"
+        size="medium"
+        slot="icon-only"
+        color="light"
+      ></ion-icon>
+      <ion-badge
+        class="notifications-badge"
+        color="danger"
+        *ngIf="notifiCount > 0"
+      >
+        {{notifiCount }}</ion-badge
+      >
+    </ion-buttons>
+    <!-- <ion-title header-title>
+      
+    </ion-title> -->
+    <ion-label slot="end" header-title>
+      <ion-row style="white-space: nowrap">
+        <div style="flex: 1"></div>
+        <ion-col>
+          <p class="client-name" *ngIf="parentData && parentData.name">
+            {{ !isDeleted ? parentData.name : ''}}
+          </p>
+          <p class="mobile-number" *ngIf="parentData && parentData.mob">
+            +{{parentData.mob}}
+          </p>
+        </ion-col>
+        <img src="assets/image/avatar-home-img.svg" class="avatar-img" />
+      </ion-row>
+    </ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [lang]="lang">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <ion-grid *ngIf="parentList">
+    <ion-col *ngIf="!isDeleted ">
+      <ion-row *ngFor="let school of parentList" style="margin-bottom: 30px">
+        <ion-card>
+          <ion-card-header>
+            <ion-row>
+              <div style="flex: 1"></div>
+              <span class="school-name">{{school.school.name}}</span>
+              <img
+                [src]="  school?.school?.image ?  school?.school?.image : 'assets/image/school-img.png'"
+                class="school-img"
+              />
+            </ion-row>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-row
+              *ngFor="let student of school.students; let last = last"
+              [ngClass]=" last ? '' : 'next-line' "
+            >
+              <ion-col>
+                <ion-row>
+                  <div style="text-align: start; flex: 3">
+                    <img
+                      (click)="viewQrCode(student)"
+                      [src]=" student.image ? student.image :  'assets/image/avatar-home-img.svg' "
+                      width="75px"
+                      height="75px"
+                    />
+                  </div>
+                  <div style="flex: 3; text-align: end; padding-top: 7%">
+                    <span class="student-name" *ngIf="student.name"
+                      >{{student.name}}</span
+                    >
+                  </div>
+                </ion-row>
+                <ion-row>
+                  <button
+                    mat-flat-button
+                    [ngClass]="(school.school.fees > 0 && !student.paid) ? 'payment-invalid' : 'payment-valid' "
+                    class="btn-general"
+                    [disabled]="student.call_student == 'disable'"
+                    (click)="callStudent(student,school)"
+                    *ngIf="student.button && !isOffline"
+                  >
+                    <span *ngIf="!student.loading">{{student.button}}</span>
+                    <ion-spinner
+                      *ngIf="student.loading"
+                      name="lines"
+                      style="--color: #fff !important"
+                    ></ion-spinner>
+                  </button>
+                  <button
+                    mat-flat-button
+                    class="btn-general payment-invalid"
+                    disabled
+                    *ngIf="student.button && isOffline"
+                  >
+                    {{'No Internet' | translate}}
+                  </button>
+                </ion-row>
+
+                <br />
+                <ion-row *ngIf="student.lbl">
+                  <div
+                    style="
+                      flex: 10;
+                      text-align: center;
+                      color: darkslategray;
+                      font-weight: bold;
+                      padding: 7px;
+                      border-radius: 20px;
+                      border: 1px solid gray;
+                    "
+                    *ngIf="lang == 'en'"
+                  >
+                    {{student.lbl.split('*')[0]}}
+                  </div>
+                  <div
+                    style="
+                      flex: 10;
+                      text-align: center;
+                      color: darkslategray;
+                      font-weight: bold;
+                      padding: 7px;
+                      border-radius: 20px;
+                      border: 1px solid gray;
+                    "
+                    *ngIf="lang == 'ar'"
+                  >
+                    {{student.lbl.split('*')[1]}}
+                  </div>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-row>
+    </ion-col>
+    <ion-col *ngIf="isDeleted ">
+      <ion-row>
+        <div style="flex: 10; text-align: center">
+          <h2 style="font-weight: bold; font-size: 25px; margin-top: 50%">
+            {{'youhavenochildren' | translate}}
+          </h2>
+        </div>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+</ion-content>
+
+<!-- ;
+padding-bottom: 20px; -->
