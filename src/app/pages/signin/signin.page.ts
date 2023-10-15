@@ -5,7 +5,7 @@ import { TranslateConfigService } from "../../services/translate-config.service"
 import * as firebase from "firebase";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from "@angular/router";
-import { Firebase } from "@ionic-native/firebase/ngx";
+import { FirebaseX } from "@ionic-native/firebase-x/ngx";
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -28,7 +28,7 @@ export class SigninPage implements OnInit {
     private sharedMethods: SharedMethodsService,
     private router: Router,
     private fireAuth: AngularFireAuth,
-    private firebasePlugin: Firebase,
+    private firebasePlugin: FirebaseX,
     private alertController: AlertController,
 
   ) {
@@ -93,7 +93,7 @@ export class SigninPage implements OnInit {
         }
         if (localStorage.getItem("smsCode")) {
           this.getToken();
-          this.PhoneLoginNative();
+         
         }
       },
       (error) => {
@@ -127,7 +127,7 @@ export class SigninPage implements OnInit {
     let staticCode = localStorage.getItem("smsCode");
     this.apiService.verifyCodePassword(staticCode).subscribe(
       (res) => {
-        //console.log(res)
+        console.log('getToken')
         this.loading = false;
         this.checkUserExistence();
         localStorage.setItem("verified", "0");
@@ -143,6 +143,7 @@ export class SigninPage implements OnInit {
     this.apiService.sharedMethods.startLoad();
     this.apiService.getParentChildren(observe).subscribe(
       (res: any) => {
+        console.log('here')
         this.apiService.sharedMethods.dismissLoader();
         if (!res || !res.result || !res["parent"]) {
           // let msg = this.translateConfigService.translate.instant(

@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 import { TranslateConfigService } from './services/translate-config.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Location } from '@angular/common';
-import { Firebase } from '@ionic-native/firebase/ngx';
+import { FirebaseX } from '@ionic-native/firebase-x/ngx';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -37,7 +37,7 @@ export class AppComponent {
     private translateConfig: TranslateConfigService,
     private locationAccuracy: LocationAccuracy,
     private geoLocation: Geolocation,
-    private firebasePlugin: Firebase,
+    private firebasePlugin: FirebaseX,
     private location: Location,
     private alertController: AlertController
   ) {

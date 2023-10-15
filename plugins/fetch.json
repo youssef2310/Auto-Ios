@@ -75,14 +75,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-firebase": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-firebase@^2.0.5"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-network-information": {
     "source": {
       "type": "registry",
@@ -115,6 +107,14 @@
       "id": "cordova-plugin-file@>=2.0.0"
     },
     "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-firebasex": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-firebasex"
+    },
+    "is_top_level": true,
     "variables": {}
   }
 }

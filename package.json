@@ -26,6 +26,7 @@
     "@ionic-native/core": "^5.36.0",
     "@ionic-native/dialogs": "^5.36.0",
     "@ionic-native/firebase": "^5.36.0",
+    "@ionic-native/firebase-x": "^5.36.0",
     "@ionic-native/geolocation": "^5.36.0",
     "@ionic-native/http": "^5.36.0",
     "@ionic-native/in-app-browser": "^5.36.0",
@@ -72,6 +73,7 @@
     "cordova-plugin-dialogs": "^2.0.2",
     "cordova-plugin-fcm-with-dependecy-updated": "^7.8.0",
     "cordova-plugin-file": "^6.0.2",
+    "cordova-plugin-firebasex": "^16.1.0",
     "cordova-plugin-geolocation": "^4.1.0",
     "cordova-plugin-inappbrowser": "^5.0.0",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
@@ -123,7 +125,8 @@
       "cordova-plugin-advanced-http": {
         "ANDROIDBLACKLISTSECURESOCKETPROTOCOLS": "SSLv3,TLSv1"
       },
-      "cordova-plugin-dialogs": {}
+      "cordova-plugin-dialogs": {},
+      "cordova-plugin-firebasex": {}
     },
     "platforms": [
       "android",

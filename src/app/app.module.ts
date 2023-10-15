@@ -24,7 +24,7 @@ import { PaymentService } from './services/payment.service';
 import {Network} from '@ionic-native/network/ngx'
 import {HTTP} from '@ionic-native/http/ngx';
 import {Dialogs} from '@ionic-native/dialogs/ngx'
-import { Firebase } from '@ionic-native/firebase/ngx';
+import { FirebaseX } from '@ionic-native/firebase-x/ngx';
 export function LanguageLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -66,7 +66,7 @@ firebase.default.initializeApp(environment.firebaseConfig);
     Network,
     HTTP,
     Dialogs,
-    Firebase,
+    FirebaseX,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],
